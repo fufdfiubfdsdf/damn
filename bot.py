@@ -22,7 +22,7 @@ async def command_start_handler(message: Message):
         [InlineKeyboardButton(text="💫Telegram Stars", callback_data="pay_stars")]
     ])
 
-    await message.answer("Month subscription", reply_markup=keyboard)
+    await message.answer("Monthly subscription", reply_markup=keyboard)
 
 @dp.callback_query()
 async def handle_payment_callback(callback_query):
