@@ -19,8 +19,7 @@ CURRENCY = "XTR"
 @dp.message()
 async def command_start_handler(message: Message):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="💫 Оплатить с Telegram Stars (Pay with Stars)", callback_data="pay_stars")],
-        [InlineKeyboardButton(text="💰 Оплатить картой (Pay with Card)", url=yoomoney_payment_link)]
+        [InlineKeyboardButton(text="💫 Оплатить с Telegram Stars (Pay with Stars)", callback_data="pay_stars")]
     ])
 
     await message.answer("Выберите способ оплаты: (Choose a payment method:)", reply_markup=keyboard)
