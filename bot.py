@@ -29,8 +29,8 @@ async def handle_payment_callback(callback_query):
     if callback_query.data == "pay_stars":
         await bot.send_invoice(
             chat_id=callback_query.from_user.id,
-            title="Подписка на 30 дней (30-Day Subscription)",
-            description="Оплатить и получить ссылку (Pay and get a link)",
+            title="30-Day Subscription",
+            description="Pay and get a link",
             payload="access_to_private",
             currency="XTR",
             prices=[LabeledPrice(label="XTR", amount=500)]
