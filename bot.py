@@ -19,10 +19,10 @@ CURRENCY = "XTR"
 @dp.message()
 async def command_start_handler(message: Message):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="💫 Оплатить с Telegram Stars (Pay with Stars)", callback_data="pay_stars")]
+        [InlineKeyboardButton(text="💫Telegram Stars", callback_data="pay_stars")]
     ])
 
-    await message.answer("Выберите способ оплаты: (Choose a payment method:)", reply_markup=keyboard)
+    await message.answer("Month subscription", reply_markup=keyboard)
 
 @dp.callback_query()
 async def handle_payment_callback(callback_query):
@@ -33,7 +33,7 @@ async def handle_payment_callback(callback_query):
             description="Оплатить и получить ссылку (Pay and get a link)",
             payload="access_to_private",
             currency="XTR",
-            prices=[LabeledPrice(label="XTR", amount=350)]
+            prices=[LabeledPrice(label="XTR", amount=500)]
         )
 
 @dp.pre_checkout_query()
