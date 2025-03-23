@@ -10,8 +10,6 @@ from aiogram.types import Message, LabeledPrice, PreCheckoutQuery, InlineKeyboar
 
 # Получаем токен из переменных окружения
 TOKEN = "7741979722:AAEBzPjM4HqoTdNajwdv2plXvdraARgMbhQ"
-YOOMONEY_WALLET = "4100118178122985"  # Укажи свой YooMoney кошелек
-YOOMONEY_AMOUNT = "650"  # Укажи сумму оплаты
 
 bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher()
@@ -20,15 +18,11 @@ CURRENCY = "XTR"
 @dp.message()
 async def command_start_handler(message: Message):
     # Создаем ссылку на оплату через YooMoney
-    yoomoney_payment_link = (
-        f"https://yoomoney.ru/quickpay/confirm.xml?receiver={YOOMONEY_WALLET}"
-        f"&sum={YOOMONEY_AMOUNT}&quickpay-form=shop&paymentType=AC"
-    )
+
 
     # Создаем кнопки
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="💫 Telegram Stars", callback_data="pay_stars")],
-        [InlineKeyboardButton(text="💰 Pay with Card (YooMoney)", url=yoomoney_payment_link)]
+        [InlineKeyboardButton(text="💫 Telegram Stars", callback_data="pay_stars")]
     ])
 
     await message.answer("Monthly subscription\nВыберите способ оплаты:", reply_markup=keyboard)
@@ -42,7 +36,7 @@ async def handle_payment_callback(callback_query):
             description="Pay and get a link",
             payload="access_to_private",
             currency="XTR",
-            prices=[LabeledPrice(label="XTR", amount=1)]
+            prices=[LabeledPrice(label="XTR", amount=499)]
         )
 
 @dp.pre_checkout_query()
