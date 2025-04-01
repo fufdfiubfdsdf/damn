@@ -31,7 +31,7 @@ async def command_start_handler(message: Message):
         [InlineKeyboardButton(text="Pay with Card", url=yoomoney_payment_link)]
     ])
 
-    await message.answer("Выберите способ оплаты: (Choose a payment method:)", reply_markup=keyboard)
+    await message.answer("30 days sub/30 дней подписка", reply_markup=keyboard)
 
 @dp.callback_query()
 async def handle_payment_callback(callback_query):
